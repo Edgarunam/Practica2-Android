@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         val room = Room.databaseBuilder(this,DBMovies::class.java, "pelicula").build()
         lifecycleScope.launch{
             room.daoMovies().agregarPeliculaid(EntidadMovie(1,"Spiderman","Super Heroes","2002"))
-            room.daoMovies().agregarPeliculaid(EntidadMovie(1,"Spiderman 2","Super Heroes","2002"))
-            room.daoMovies().agregarPeliculaid(EntidadMovie(1,"Spiderman 3","Super Heroes","2002"))
+            room.daoMovies().agregarPeliculaid(EntidadMovie(2,"Spiderman 2","Super Heroes","2002"))
+            room.daoMovies().agregarPeliculaid(EntidadMovie(3,"Spiderman 3","Super Heroes","2002"))
 
-            var peliculas = room.daoMovies().getMovies()
+            var peliculas = room.daoMovies().obtenerMovies()
             for(item in peliculas){
                 println("${item.title}")
             }
